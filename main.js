@@ -4,7 +4,7 @@ function ngRun (app) {
   let ngDyn = ng.platformBrowserDynamic.platformBrowserDynamic()
 
   // Components
-  app.Comp1 = ngComp({
+  const heading = ngComp({
     selector: 'omg',
     template: `<h1>This is so unecessary</h1>`
   })
@@ -13,18 +13,18 @@ function ngRun (app) {
   })
 
   // Modules
-  app.Mod1 = ngMod({
+  const module = ngMod({
     imports: [ ng.platformBrowser.BrowserModule ],
-    declarations: [ app.Comp1 ],
-    bootstrap: [ app.Comp1 ]
+    declarations: [heading],
+    bootstrap: [heading]
   })
   .Class({
     constructor: function () {}
   })
-  
+
   // Bootsrapper
   document.addEventListener('DOMContentLoaded', function () {
-    ngDyn.bootstrapModule(app.Mod1)
+    ngDyn.bootstrapModule(module)
   })
 }
 ngRun(window.app || (window.app = {}))
