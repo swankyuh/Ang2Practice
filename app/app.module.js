@@ -1,4 +1,4 @@
-function modStart (app) {
+function angStartMod (app) {
   app.AppModule = ng.core.NgModule({
     imports: [ ng.platformBrowser.BrowserModule ],
     declarations: [ app.AppComponent ],
@@ -8,4 +8,4 @@ function modStart (app) {
     constructor: function () {}
   })
 }
-modStart(window.app || (window.app = {}))
+angStartMod(window.app || (window.app = {}))

@@ -1,7 +1,8 @@
-;(function (app) {
+function angStartMain (app) {
   document.addEventListener('DOMContentLoaded', function () {
     ng.platformBrowserDynamic
       .platformBrowserDynamic()
       .bootstrapModule(app.AppModule)
   })
-})(window.app || (window.app = {}))
+}
+angStartMain(window.app || (window.app = {}))
