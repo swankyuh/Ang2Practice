@@ -6,10 +6,12 @@ function ngRun (app) {
   // Components
   const heading = ngComp({
     selector: 'omg',
-    template: `<h1>This is so unecessary</h1>`
+    template: `<h1>{{test}}</h1>`
   })
   .Class({
-    constructor: function () {}
+    constructor: function heading () {
+      this.test = 'catchphrase!'
+    }
   })
 
   // Modules
@@ -19,11 +21,11 @@ function ngRun (app) {
     bootstrap: [heading]
   })
   .Class({
-    constructor: function () {}
+    constructor: function module () {}
   })
 
   // Bootsrapper
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', () => {
     ngDyn.bootstrapModule(module)
   })
 }
