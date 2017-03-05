@@ -1,8 +1,26 @@
-function angStartMain (app) {
-  document.addEventListener('DOMContentLoaded', function () {
-    ng.platformBrowserDynamic
-      .platformBrowserDynamic()
-      .bootstrapModule(app.AppModule)
+;(function (app) {
+  let ngComp = ng.core.Component
+  let ngMod = ng.core.NgModule
+  let ngDyn = ng.platformBrowserDynamic.platformBrowserDynamic()
+  // Components
+  app.Comp1 = ngComp({
+    selector: 'omg',
+    template: `<h1>This is so unecessary</h1>`
   })
-}
-angStartMain(window.app || (window.app = {}))
+  .Class({
+    constructor: function () {}
+  })
+  // Modules
+  app.Mod1 = ngMod({
+    imports: [ ng.platformBrowser.BrowserModule ],
+    declarations: [ app.Comp1 ],
+    bootstrap: [ app.Comp1 ]
+  })
+  .Class({
+    constructor: function () {}
+  })
+
+  document.addEventListener('DOMContentLoaded', function () {
+    ngDyn.bootstrapModule(app.Mod1)
+  })
+})(window.app || (window.app = {}))
